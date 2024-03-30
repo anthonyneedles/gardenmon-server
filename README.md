@@ -1,6 +1,20 @@
 # GardenMon Server
 
+- [GardenMon Server](#gardenmon-server)
+  - [Block Diagram](#block-diagram)
+  - [Database](#database)
+  - [Setup](#setup)
+  - [Useful Commands](#useful-commands)
+
+## Block Diagram
+
 The GardenMon Server is meant to serve out data from the database that holds environmental data reported by the GardenMon devices (see [gardenmon](https://github.com/anthonyneedles/gardenmon)).
+
+![gardenmon_block_diagram.jpg](./docs/gardenmon_block_diagram.jpg)
+
+## Database
+
+See [docs/mariadb.md](./docs/mariadb.md) for info on setting up the database with MariaDB.
 
 ## Setup
 
