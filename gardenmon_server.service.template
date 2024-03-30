@@ -1,0 +1,12 @@
+[Unit]
+Description=gardenmon data server service
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart=${GARDENMON_SERVER_PATH}/.venv/bin/python3 ${GARDENMON_SERVER_PATH}/gardenmon_server.py
+
+[Install]
+WantedBy=multi-user.target

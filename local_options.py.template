@@ -1,0 +1,5 @@
+# Database credentials.
+database_name = ""
+database_table = ""
+database_user = ""
+database_password = ""
