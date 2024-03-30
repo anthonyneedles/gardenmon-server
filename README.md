@@ -12,8 +12,8 @@ cd gardenmon-server
 ./init.sh
 ```
 
-2. Fill in `local_options.py`. 
-For security reasons, this file does not get tracked by git. 
+2. Fill in `local_options.py`.
+For security reasons, this file does not get tracked by git.
 
 3. Start the GardenMon Server service with:
 

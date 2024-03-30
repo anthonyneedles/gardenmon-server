@@ -49,15 +49,15 @@ def query_data():
     connection = create_db_connection()
     cursor = connection.cursor(dictionary=True)
     query = f"""
-    SELECT 
-        avg(ambient_humidity) as avg_ambient_humidity, 
+    SELECT
+        avg(ambient_humidity) as avg_ambient_humidity,
         avg(ambient_light_lx) as avg_ambient_light_lx,
         avg(ambient_temp_f) as avg_ambient_temp_f,
         avg(cpu_temp_f) as avg_cpu_temp_f,
         avg(soil_moisture_level) as avg_soil_moisture_level,
         avg(soil_moisture_val) as avg_soil_moisture_val,
         avg(soil_temp_f) as avg_soil_temp_f,
-        {time_grouping.value} as insert_time 
+        {time_grouping.value} as insert_time
     FROM {local_options.database_table}
     WHERE insert_time >= '{start_date}' and insert_time < '{end_date}'
     group by {time_grouping.value}
