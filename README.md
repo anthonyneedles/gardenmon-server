@@ -57,9 +57,9 @@ To read the stdout of the service:
 journalctl -eu gardenmon
 ```
 
-To test that the server is running:
+To test that the server is running, call this in your browser:
 
 ```
-curl localhost:5000/test
+http://192.168.10.79:5000/data?start_date=2024-03-01-00&end_date=2024-04-01-00&grouping_period=fifteen_min`
 ```
 
