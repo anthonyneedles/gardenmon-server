@@ -1,10 +1,13 @@
 import datetime
 from enum import Enum
 from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 import local_options
 import mysql.connector
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 class TimeGrouping(Enum):
     all_data = ""
@@ -27,6 +30,7 @@ def create_db_connection():
 
 
 @app.route('/data', methods=['GET'])
+@cross_origin()
 def query_data():
     start_date = request.args.get('start_date')
     end_date = request.args.get('end_date')
@@ -67,13 +71,13 @@ def query_data():
     else:
         query = f"""
             SELECT
-                AVG(ambient_humidity) AS avg_ambient_humidity,
-                AVG(ambient_light_lx) AS avg_ambient_light_lx,
-                AVG(ambient_temp_f) AS avg_ambient_temp_f,
-                AVG(cpu_temp_f) AS avg_cpu_temp_f,
-                AVG(soil_moisture_level) AS avg_soil_moisture_level,
-                AVG(soil_moisture_val) AS avg_soil_moisture_val,
-                AVG(soil_temp_f) AS avg_soil_temp_f,
+                AVG(ambient_humidity) AS ambient_humidity,
+                AVG(ambient_light_lx) AS ambient_light_lx,
+                AVG(ambient_temp_f) AS ambient_temp_f,
+                AVG(cpu_temp_f) AS cpu_temp_f,
+                AVG(soil_moisture_level) AS soil_moisture_level,
+                AVG(soil_moisture_val) AS soil_moisture_val,
+                AVG(soil_temp_f) AS soil_temp_f,
                 {time_grouping.value} AS insert_time,
                 device
             FROM {local_options.database_table}
