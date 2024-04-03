@@ -1,0 +1,10 @@
+{
+	"files": {
+		"main.css": "/websiteBuild/static/css/main.5a984d1b.css",
+		"main.js": "/websiteBuild/static/js/main.1c9bad15.js",
+		"index.html": "/websiteBuild/index.html",
+		"main.5a984d1b.css.map": "/websiteBuild/static/css/main.5a984d1b.css.map",
+		"main.1c9bad15.js.map": "/websiteBuild/static/js/main.1c9bad15.js.map"
+	},
+	"entrypoints": ["static/css/main.5a984d1b.css", "static/js/main.1c9bad15.js"]
+}
