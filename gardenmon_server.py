@@ -5,7 +5,7 @@ from flask_cors import CORS, cross_origin
 import local_options
 import mysql.connector
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='GardenMonWebsite')
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
@@ -33,6 +33,10 @@ def create_db_connection():
             return connection
     except Exception as e:
         raise e
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 
 @app.route('/data', methods=['GET'])
