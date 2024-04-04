@@ -84,7 +84,7 @@ def query_data():
         query = f"""
             SELECT
                 {string_columns},
-                insert_time,
+                UNIX_TIMESTAMP(insert_time) as insert_time,
                 device
             FROM {local_options.database_table}
             WHERE insert_time >= '{start_date}' AND insert_time < '{end_date}' and {device}
@@ -94,7 +94,7 @@ def query_data():
         query = f"""
             SELECT
                 {avg_columns},
-                {time_grouping.value} AS insert_time,
+                UNIX_TIMESTAMP({time_grouping.value}) AS insert_time,
                 device
             FROM {local_options.database_table}
             WHERE insert_time >= '{start_date}' AND insert_time < '{end_date}' and {device}
