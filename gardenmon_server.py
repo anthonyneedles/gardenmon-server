@@ -3,6 +3,7 @@ from enum import Enum
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 import local_options
+import logging
 import mysql.connector
 from typing import List
 
@@ -111,6 +112,7 @@ def query_data():
     try:
         rows = get_data(columns, device, start_date, end_date, grouping_period)
     except Exception as e:
+        logging.exception("failed to obtain data")
         return jsonify({"error": str(e)}), 400
 
     return jsonify(rows), 200
