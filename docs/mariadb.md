@@ -44,7 +44,7 @@ CREATE TABLE <DATABASE_TABLE> (
     soil_temp_f FLOAT,
     ambient_temp_f FLOAT,
     ambient_humidity FLOAT,
-    insert_time TIMESTAMP,
+    insert_time DATETIME,
     device VARCHAR(50)
 );
 ```
